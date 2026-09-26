@@ -12,10 +12,50 @@
             <div class="hero">
             </div>
         </header>
-        <div class="about">
-                <h2>About This Blog</h2>
-                <p>This blog was created for everyone to share their experience fly-fishing. It was inspired by my love of fishing, and hearing about other peoples' eyes light up when they are telling the story of the "Big One" they hooked!</p>
-        </div>     
+        <div class="about-api-container">
+            <div class="about">
+                    <h2>About This Blog</h2>
+                    <p>This blog was created for everyone to share their experience fly-fishing. It was inspired by my love of fishing, and hearing about other peoples' eyes light up when they are telling the story of the "Big One" they hooked!</p>
+            </div>
+            <div class="forecast">
+                <h1>Check the weather before your next trip!</h1>
+                <div class="weather-top">
+                    <div class="weather-search">
+                        <h3>Enter a Zip Code to Check Weather</h3>
+                    <form action="/weather" method="POST">
+                        <input type="text" id="zipCode" name="zipCode" placeholder="Enter Zip Code" required>
+                        <button type="submit">Search</button>
+                    </form>
+                    </div>
+                <% if (locals.weather) { %>
+                    <div class="current-forecast">
+                        <% if (locals.location) { %>
+                            <h2>Current Weather for <%= location.name %>:</h2>
+                        <% } %>
+                        <p>Temp: <%= weather.current.temp %> &deg;F </p>
+                        <p>Feels Like: <%= weather.current.feels_like %>&deg;F</p>
+                        <p>Humidity: <%= weather.current.humidity %>%</p>
+                        <p>Wind Speed: <%=weather.current.wind_speed %> mph</p>
+                    </div>
+                </div>
+                <h2>Seven day Forecast for <%= location.name %>:</h2>
+                    <div class="weather-card-container">
+                        <% for(let i=1; i<weather.daily.length; i++ ){ %>
+                            <div class="weather-card">
+                                <h3> <%= new Date(weather.daily[i].dt *1000).toLocaleDateString("en-us",{ weekday: "long"})%></h3>
+                                <p>High: <%= weather.daily[i].temp.max %> &deg;F </p>
+                                <p>Low: <%= weather.daily[i].temp.min %>&deg;F</p>
+                                <p>Humidity: <%= weather.daily[i].humidity %>%</p>
+                                <p>Wind Speed: <%= weather.daily[i].wind_speed %> mph</p>
+                            </div>
+                        <% } %>
+                    </div>
+                        
+                <% } else { %>
+                <p>Use the search bar to find weather</p>
+            <% } %>
+            </div>
+        </div>    
         <main class="main">
             <div class="new-blog-post">
                 <h2>Create New Blog Post</h2>

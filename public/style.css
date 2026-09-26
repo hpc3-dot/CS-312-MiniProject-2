@@ -1,6 +1,10 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
+    background-image: url('/public/images/background.png');
+    background-position: center;
+    background-repeat: no-repeat;
+      background-size: cover;
 
 }
 body button {
@@ -20,19 +24,15 @@ body input[type=text] {
 
 }
 body textarea{
-     border-radius: 8px;
+    border-radius: 8px;
     padding:       10px 20px;
 }
 .container {
     gap: 20px;
     display: grid;
     grid-template-rows: auto auto;
-    background-image: url('/public/images/background.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100%;
     min-height: 100vh;
-    background-size: cover;
+    min-width: 100vw;
 }
 
 .hero {
@@ -61,17 +61,34 @@ body textarea{
     border: 2px solid #C7B98A;
     border-radius: 8px;
     padding: 5px;
-    margin: 10px;
+    margin-right: 20px;
     font-size: 12px;
     text-align: center;
+    width: 360px;
+    min-height: 400px;
 
+}
+ .about-api-container {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+ }
+.api{
+    background-color: rgba(25, 60, 60, 0.88);
+    color: #F1E8D0;
+    border: 2px solid #C7B98A;
+    border-radius: 8px;
+    padding: 5px;
+    font-size: 12px;
+    text-align: center;
+    min-width: 360px;
+    min-height: 400px;
 }
 
 .main {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    overflow-x: auto; 
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px; 
     padding: 20px;
     
 }
@@ -80,30 +97,36 @@ body textarea{
     flex-direction: column;
     background-color: rgba(25, 60, 60, 0.92);
     color: #F1E8D0;
-    padding: 20px;
+    padding: 5px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    min-width: 300px; 
+    min-width: 360px; 
     min-height: 400px; 
-
+    align-content: center;
+    text-align: center;
 }
 .new-blog-post form {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    
+    
 }
 .blog-posts {
     scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;  
+    scroll-snap-type:x mandatory; 
     -webkit-overflow-scrolling: touch;
     display: flex;
     flex-direction: row;
-    padding: 0 20px;
-    gap: 20px;
+    overflow-x: auto;
+    gap: 15px;
+    margin : 0px 20px;
+    min-width: 400px;
+   
+    
 }
 .blog-card {
     background-color: #ffffff;
-    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     min-width: 360px; 
@@ -120,7 +143,7 @@ body textarea{
     text-align: center;
 }
 .blog-card p {
-     background-color: rgba(25, 60, 60, 0.88);
+    background-color: rgba(25, 60, 60, 0.88);
     color: #F1E8D0;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -142,4 +165,104 @@ body textarea{
     display:flex;
     justify-content: center;
     align-items: center;
+}
+.forecast {
+    background-color: rgba(25, 60, 60, 0.88);
+    color: #F1E8D0;
+    border: 2px solid #C7B98A;
+    border-radius: 8px;
+    padding: 5px;
+    font-size: 12px;
+    text-align: center;
+    min-width: 360px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+.current-forecast{
+    padding: 10 px;
+    text-align: center;
+    border-radius: 8px;
+    background-color: rgba(66, 156, 104, 0.7);
+    margin: 5px;
+    padding: 5px;
+    width: 80%;
+}
+.weather-top{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding: 5px;
+    
+
+}
+.weather-search{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    border-radius: 8px;
+    background-color: rgba(66, 156, 104, 0.7);
+    padding: 5px;
+    margin: 5px;
+    text-align: center;
+    width: 80%;
+}
+.weather-search h3{
+    align-self: center;
+}
+.weather-card {
+    min-width:100px;
+    padding: 10 px;
+    text-align: center;
+    border-radius: 8px;
+    background-color: rgba(66, 156, 104, 0.7);
+
+}
+.weather-card-container h2{
+    margin: 0 0 15px 0;
+}
+
+.weather-card-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    overflow-x: auto;
+    max-height: 400px;
+}
+
+@media (max-width: 600px) {
+        body {
+        display: flex;
+        flex-direction: column;
+    }
+    body div {
+        width: 90%;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .main {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+    }
+
+    .about-api-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .weather-top {
+        display: flex;
+        flex-direction: column;
+    }
+
+
 }
