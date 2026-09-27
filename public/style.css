@@ -1,3 +1,13 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -31,8 +41,7 @@ body textarea{
     gap: 20px;
     display: grid;
     grid-template-rows: auto auto;
-    min-height: 100vh;
-    min-width: 100vw;
+  
 }
 
 .hero {
@@ -71,7 +80,7 @@ body textarea{
  .about-api-container {
     display: flex;
     flex-direction: row;
-    padding: 20px;
+    padding: 0px;
  }
 .api{
     background-color: rgba(25, 60, 60, 0.88);
@@ -180,7 +189,7 @@ body textarea{
     flex-direction: column;
 }
 .current-forecast{
-    padding: 10 px;
+    padding: 10px;
     text-align: center;
     border-radius: 8px;
     background-color: rgba(66, 156, 104, 0.7);
@@ -212,7 +221,7 @@ body textarea{
 }
 .weather-card {
     min-width:100px;
-    padding: 10 px;
+    padding: 10px;
     text-align: center;
     border-radius: 8px;
     background-color: rgba(66, 156, 104, 0.7);
@@ -224,45 +233,79 @@ body textarea{
 
 .weather-card-container {
     display: flex;
-    justify-content: center;
     gap: 15px;
     overflow-x: auto;
     max-height: 400px;
 }
 
 @media (max-width: 600px) {
-        body {
-        display: flex;
-        flex-direction: column;
-    }
-    body div {
-        width: 90%;
-        max-width: 400px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .main {
-        display: flex;
-        flex-direction: column;
-        width: 90%;
 
+    body {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        overflow-x: hidden;
     }
 
     .container {
         display: flex;
         flex-direction: column;
-        width: 90%;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .header {
+        width: 100%;
+    }
+
+    .hero {
+        width: 100%;
+        max-width: 100%;
     }
 
     .about-api-container {
         display: flex;
         flex-direction: column;
+        width: 100%;
+    }
+
+    .about,
+    .api,
+    .forecast,
+    .new-blog-post {
+        width: 100%;
+        min-width: 0;
+        max-width: 400px;
+    }
+
+    .main {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 10px;
     }
 
     .weather-top {
         display: flex;
         flex-direction: column;
+        align-items: center;
+        width: 100%;
     }
 
+    .weather-search,
+    .current-forecast {
+        width: 90%;
+    }
+
+    .blog-posts {
+        width: 100%;
+        min-width: 0;
+        overflow-x: auto;
+    }
+
+    .blog-card {
+        min-width: 360px;
+    }
 
 }
